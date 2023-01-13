@@ -22,6 +22,7 @@ import static org.recast4j.recast.RecastConstants.RC_MESH_NULL_IDX;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
 import org.junit.jupiter.api.Test;
@@ -253,7 +254,8 @@ public class RecastSoloMeshTest {
 
     private void saveObj(String filename, PolyMesh mesh) {
         try {
-            File file = Path.of("test-output", filename).toFile();
+//            File file = Path.of("test-output", filename).toFile();
+            File file = FileSystems.getDefault().getPath("test-output", filename).toFile();
             file.getParentFile().mkdirs();
             FileWriter fw = new FileWriter(file);
             for (int v = 0; v < mesh.nverts; v++) {
@@ -281,7 +283,8 @@ public class RecastSoloMeshTest {
 
     private void saveObj(String filename, PolyMeshDetail dmesh) {
         try {
-            File file = Path.of("test-output", filename).toFile();
+//            File file = Path.of("test-output", filename).toFile();
+            File file = FileSystems.getDefault().getPath("test-output", filename).toFile();
             file.getParentFile().mkdirs();
             FileWriter fw = new FileWriter(file);
             for (int v = 0; v < dmesh.nverts; v++) {
